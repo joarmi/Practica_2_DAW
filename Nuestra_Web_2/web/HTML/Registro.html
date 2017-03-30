@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src=../JavaScript/libCapas.js></script>
+        <link rel="stylesheet" href="../CSS/Registro.css" type="text/css"/>
+    </head>
+    <body>
+        <form action="procesar.cgi" method="POST">
+            <div class="menu">
+                <header id="menu">
+                    <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
+                </header>
+            </div>
+
+            <div class="principal">
+                <article>
+                    <table>
+                        <tr>
+                            <td> Nombre: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="nombre" size="20" maxlength="20" required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Apellidos: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="apellidos" size="20" maxlength="20" required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Usuario: </td> <td> <input type="text" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" size="20" maxlength="20" required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Contraseña: </td> <td> <input type="password" name="password" size="20" maxlength="20" required/> </td>
+                        </tr>
+                        <tr>
+                            <td> Teléfono: </td> <td> <input type="number" name="telefono" min="1" max="999999999" required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Dirección </td> <td> <input type="text" name="direccion" size="40" maxlength="50" required/> </td>
+                        </tr>
+                        <tr>
+                            <td> Email </td> <td> <input type="email" name="email" size="40" maxlength="50" required/> </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input type="submit" value="Entrar en la tienda" onclick="alert('Te has registrado')" id="boton" /> </td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
+
+            <footer id="pie">  
+                <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
+            </footer>
+        </form>
+    </body>
+</html>

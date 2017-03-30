@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src=../JavaScript/libCapas.js></script>
+        <link rel="stylesheet" href="../CSS/Inicio.css" type="text/css"/>
+    </head>
+    <body>
+
+        <form action="procesar.cgi" method="POST">
+            <div class="menu">
+                <header id="menu">
+                    <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
+                </header>
+            </div>
+
+            <br> <!-- <br> <br> <br> -->
+
+            <div class="principal">
+                <article>
+                    <table border="1">
+                        <tr>
+                            <td colspan="4"> <img src="../Imagenes/logo mr2.jpg" height="350" width="618"> </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr> <strong> <u>  BIENVENIDO </u> </strong> <br> <br> </tr>
+                                    <tr> <a href="../HTML/Inicio_sesion.html"> Iniciar sesión </a> </tr>
+                                </table>
+                            </td>
+                            <td colspan="3">
+                                <h3> Producto estrella </h3>
+                                <table>
+                                    <img src="../Imagenes/devil.jpg" height="200" width="175"> <br> <a> 35€ </a> <br> <input id="boton" type="button" height="40" value="A la cesta" />
+                                </table>
+                                <br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4"> 
+                                <h3><strong><u> OFERTAS </u></strong></h3> <br> <br>
+                                <table id="oferta" align="center" cellspacing="90" width="100%">
+                                    <tr>
+                                        <td> <img src="../Imagenes/horizon.jpg" height="200" width="175"> <br> <a> 65€ </a> <br> <input id="boton" type="button" height="40" value="A la cesta" /> <br> </td>
+                                        <td> <img src="../Imagenes/nier.jpg" height="200" width="175"> <br> <a> 70€ </a> <br> <input id="boton" type="button" height="40" value="A la cesta" /> <br> </td>
+                                    </tr>
+                                </table>
+                                <br>
+                            </td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
+            
+            <br>
+
+            <div id="pie"> 
+                <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
+            </div>
+
+        </form>
+
+    </body>
+</html>

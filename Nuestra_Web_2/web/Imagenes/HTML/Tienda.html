@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src=../JavaScript/libCapas.js></script>
+        <link rel="stylesheet" href="../CSS/Tienda.css" type="text/css"/>
+    </head>
+    <body>
+        <form action="procesar.cgi" method="POST">
+
+            <div class="menu">
+                <header id="menu">
+                    <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
+                </header>
+            </div>
+
+            <br>
+
+            <div class="principal">
+                <article>
+                    <table border="1" id="productos">
+                        <tr>
+                            <td> <b> Portada </b> </td> <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Descripción </b> </td> <td> <b> Unidades </b> </td>
+                        </tr>
+                        <tr>
+                            <td> <img src="../Imagenes/horizon.jpg" height="200" width="175"> </td> <td> <label> Horizon: Zero Dawn </label> </td> <td> <label> 70 </label> </td> <td> <textarea rows="12" cols="25" disabled>Se dice algo</textarea> </td> <td> <input type="number" min="1" max="999999999" value="0"/> </td>  <td> <input type="button" value="A la cesta"/> </td>
+                        </tr>
+                        <tr>
+                            <td> <img src="../Imagenes/nier.jpg" height="200" width="175"> </td> <td> <label> Nier:Automata </label> </td> <td> <label> 65 </label> </td> <td> <textarea rows="12" cols="25" disabled>Se dice algo</textarea> </td> <td> <input type="number" min="1" max="999999999" value="0"/> </td>  <td> <input type="button" value="A la cesta"/> </td>
+                        </tr>
+                        <tr>
+                            <td> <img src="../Imagenes/devil.jpg" height="200" width="175"> </td> <td> <label> Devil May Cry HD Collections </label> </td> <td> <label> 35 </label> </td> <td> <textarea rows="12" cols="25" disabled>Se dice algo</textarea> </td> <td> <input type="number" min="1" max="999999999" value="0"/> </td>  <td> <input type="button" value="A la cesta"/> </td>
+                        </tr>
+                    </table>
+                </article>
+            </div>
+
+            <br>
+
+            <footer id="pie"> 
+                <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
+            </footer>
+
+        </form>
+    </body>
+</html>

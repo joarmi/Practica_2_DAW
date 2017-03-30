@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src=../JavaScript/libCapas.js></script>
+        <link rel="stylesheet" href="../CSS/Sesion_iniciada.css" type="text/css"/>
+    </head>
+    <body>
+        <form action="procesar.cgi" method="POST">
+
+            <div class="menu">
+                <header id="menu">
+                    <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
+                </header>
+            </div>
+
+            <br> <br>
+
+            <div class="principal">
+                <input type="radio" name="opcion" id='radio' value="1"  title="modificar" onclick="habilitar()"/>
+                <label> Modificar </label>
+                <input type="radio" name="opcion" id='radio' value="2" title="no_modificar" onclick="deshabilitar()"/>
+                <label> No modificar </label>
+
+                <br> <br>
+
+                <article>
+
+                    <table>
+                        <tr>
+                            <td> Nombre: </td> <td> <input type="text" id="nombre" pattern="([ ]|[a-zA-z])*" name="nombre" size="20" maxlength="20" value="Javier"  disabled required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Apellidos: </td> <td> <input type="text" id="apellidos" pattern="([ ]|[a-zA-z])*" name="apellidos" size="20" maxlength="20" value="Argente Micó" disabled required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Usuario: </td> <td> <input type="text" id="user" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" size="20" maxlength="20" value="joarmi" disabled required /> </td>
+                        </tr>
+                        <tr>
+                            <td> Contraseña: </td> <td> <input type="password" id="pwd" name="password" size="20" maxlength="20" value="password" disabled required/> </td>
+                        </tr>
+                        <tr>
+                            <td> Teléfono: </td> <td> <input type="number" id="tel" name="telefono" min="1" max="999999999" value="123456789" disabled required/> </td>
+                        </tr>
+                        <tr>
+                            <td> Dirección </td> <td> <input type="text" id="dir" name="direccion" size="40" maxlength="50" value="Universidad de Valencia" disabled required/> </td>
+                        </tr>
+                        <tr>
+                            <td> Email </td> <td> <input type="email" id="mail" name="email" size="40" maxlength="50" value="joarmi@alumni.uv.es" disabled required/> </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <input type="reset" id="boton" value="Confirmar cambios" disabled /> </td>
+                        </tr>
+                    </table>
+
+                    <br> <br>
+
+                    <table border="1" id="pedidos">
+                        <tr>
+                            <td> <b> Nombre </b> </td> <td> <b> Unidades </b> </td> <td> <b> Precio (€) </b> </td>
+                        </tr>
+                        <tr>
+                            <td> Horizon: Zero Dawn </td> <td> <input type="number" min="1" max="999999999" value="2"/> </td> <td> 140  </td> <td> <input type="button" value="Modificar"/>  </td> <td> <input type="button" value="Cancelar"/> </td>
+                        </tr>
+                        <tr>
+                            <td> Nier: Automata </td> <td> <input type="number" min="1" max="999999999" value="2"/> </td> <td> 130  </td> <td> <input type="button" value="Modificar"/>  </td> <td> <input type="button" value="Cancelar"/> </td>
+                        </tr>
+                        <tr>
+                            <td> Devil May cry HD Collection </td> <td> <input type="number" min="1" max="999999999" value="2"/> </td> <td> 35  </td> <td> <input type="button" value="Modificar"/>  </td> <td> <input type="button" value="Cancelar"/> </td>
+                        </tr>
+                    </table>
+
+                </article>
+
+            </div>
+
+            <br>
+
+            <footer id="pie"> 
+                <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
+            </footer>
+        </form>
+    </body>
+</html>

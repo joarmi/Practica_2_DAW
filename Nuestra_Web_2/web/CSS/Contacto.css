@@ -1,0 +1,117 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-mar-2017, 14:14:02
+    Author     : Javier Argente Micó
+*/
+html {
+    position: relative; 
+    min-height: 100%;
+}
+
+/***************  menu  ***********/
+
+* {
+    padding: 0px;
+}
+
+#menu {
+    /*margin: auto;*/
+    width: 800px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: -16px;
+    /*position: fixed;*/
+}
+
+ul, lo {
+    list-style: none;
+}
+
+.nav li a {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+}
+
+.nav li a:hover {
+    background-color: grey;
+}
+
+.nav > li {
+    float: left;
+}
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul {
+    display: block;
+}
+
+/*--------------------------------------------------*/
+
+#map {
+    height: 400px;
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*#textArea:focus{
+    height: 200px;
+}*/
+
+html{
+    text-align: center;
+}
+
+div.menu{
+    margin: auto;
+    margin-left: -10px;
+    margin-right: -8px;
+    height: 38px;
+    background-color: black;
+}
+
+body{
+    background-image: url(../Imagenes/fondo5.jpg);
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    margin: 0 0 52px ;     /*Para que el pie de página este fijo siempre al final*/
+}
+
+#pie {
+    background-color: #176CCD;
+    
+    /*Para que el pie de página este fijo siempre al final*/
+    width: 100.51%; 
+    bottom: 0;
+    position: absolute;
+    height: 52px;
+    text-align: center;
+    /*El 0.51 extra de width es para que no quede el hueco vacio al lado*/
+    
+    /*Para que funcoine comentar todo lo que hace que el pie de pagina este fijo abajo*/
+    /*margin-left: -8px;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    position: fixed;*/
+}
+
+table {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}
