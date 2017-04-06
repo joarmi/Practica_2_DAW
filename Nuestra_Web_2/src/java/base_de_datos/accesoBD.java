@@ -35,4 +35,32 @@ public class accesoBD {
         abrirConexionBD();
         return conexionBD != null;
     }
+
+    public ResultSet obtenerPedidosBD() {
+        abrirConexionBD();
+        ResultSet resultados = null;
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad FROM pedidos WHERE envio=0";
+            resultados = s.executeQuery(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        return resultados;
+    }
+    
+    public ResultSet obtenerProductosBD() {
+        abrirConexionBD();
+        ResultSet resultados = null;
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT id_producto,nombre_producto,precio,descripcion FROM productos";
+            resultados = s.executeQuery(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        return resultados;
+    }
 }
