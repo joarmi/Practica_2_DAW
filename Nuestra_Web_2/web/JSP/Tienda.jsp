@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="../CSS/Tienda.css" type="text/css"/>
     </head>
     <body>
-        <form action="procesar.cgi" method="POST">
 
             <div class="menu">
                 <header id="menu">
@@ -37,7 +36,7 @@
                     <table border="1" id="productos">
                         
                         <tr>
-                            <td> <b> Portada </b> </td> <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Descripción </b> </td> <td> <b> Unidades </b> </td>
+                            <td> <b> Portada </b> </td> <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Descripción </b> </td>
                         </tr>
                         
                         <%
@@ -48,13 +47,21 @@
                                 float precio = productos.getFloat("precio");
                         %>
                         
-                        <tr>                     
+                        <tr>
                             <td> <img src="../Imagenes/<%=id%>.jpg" height="200" width="175"> </td>                     
                             <td> <%=nombre_producto%> </td>                     
                             <td> <%=precio%> </td>
                             <td> <textarea rows="12" cols="25" disabled><%=descripcion%></textarea> </td>
-                            <td> <input type="number" min="1" max="999999999" value="0"/> </td>
-                            <td> <input type="button" id="agregar<%=id%>" value="A la cesta"/> </td>
+                            <td>
+                                <form method="post" action="../tienda_producto">
+                                    <input type="hidden" name="id_producto" value="<%=id%>">
+                                    <input type="hidden" name="nombre_producto" value="<%=nombre_producto%>">
+                                    <input type="hidden" name="precio" value="<%=precio%>">
+                                    <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>">
+                                    <input type="button" value="Solicitar" onclick="hacer_pedido(<%=id%>)">
+                                    <input type="submit" value="Agregar a la cesta">
+                                </form>
+                            </td>
                         </tr>
                         
                         <% 
@@ -71,6 +78,5 @@
                 <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
             </footer>
 
-        </form>
     </body>
 </html>

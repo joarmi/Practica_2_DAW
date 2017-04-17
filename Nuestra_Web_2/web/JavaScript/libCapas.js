@@ -108,38 +108,20 @@ function initMap() {
     var marker = new google.maps.Marker({position: uluru, map: map});
 }
 
-function habilitar(){
-    document.getElementById("nombre").disabled = false;
-    document.getElementById("apellidos").disabled = false;
-    document.getElementById("user").disabled = false;
-    document.getElementById("pwd").disabled = false;
-    document.getElementById("tel").disabled = false;
-    document.getElementById("dir").disabled = false;
-    document.getElementById("mail").disabled = false;
-    document.getElementById("boton").disabled = false;
-}
-
-function deshabilitar(){
-    document.getElementById("nombre").disabled = true;
-    document.getElementById("apellidos").disabled = true;
-    document.getElementById("user").disabled = true;
-    document.getElementById("pwd").disabled = true;
-    document.getElementById("tel").disabled = true;
-    document.getElementById("dir").disabled = true;
-    document.getElementById("mail").disabled = true;
-    document.getElementById("boton").disabled = true;
-}
-
-function realizarPedidos(){
-    document.getElementById("num1").disabled = true;
-    document.getElementById("num2").disabled = true;
-    document.getElementById("num3").disabled = true;
-    document.getElementById("mod1").disabled = true;
-    document.getElementById("mod2").disabled = true;
-    document.getElementById("mod3").disabled = true;
-    document.getElementById("can1").disabled = true;
-    document.getElementById("can2").disabled = true;
-    document.getElementById("can3").disabled = true;
+function cesta_modificar(id){
     
-    alert("Pedidos enviados");
+    var elemento = "cantidad" + id;
+    var cantidad_n = prompt("Introduce la nueva cantida y pulsa en confirmar modicación");
+    
+    document.getElementById(elemento).value = cantidad_n;
+    
+}
+
+function hacer_pedido(id){
+    
+    var elemento = "cantidad" + id;
+    var cantidad_n = prompt("Introduce la cantidad desea y pulsa en agregar a la cesta");
+    
+    document.getElementById(elemento).value = cantidad_n;
+    
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>cesta_modificar</servlet-name>
+        <servlet-class>base_de_datos.cesta_modificar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cesta_enviar</servlet-name>
+        <servlet-class>base_de_datos.cesta_enviar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cesta_cancelar</servlet-name>
+        <servlet-class>base_de_datos.cesta_cancelar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tienda_producto</servlet-name>
+        <servlet-class>base_de_datos.tienda_producto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cesta_modificar</servlet-name>
+        <url-pattern>/cesta_modificar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cesta_enviar</servlet-name>
+        <url-pattern>/cesta_enviar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cesta_cancelar</servlet-name>
+        <url-pattern>/cesta_cancelar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tienda_producto</servlet-name>
+        <url-pattern>/tienda_producto</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

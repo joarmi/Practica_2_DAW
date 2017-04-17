@@ -17,8 +17,6 @@
         <link rel="stylesheet" href="../CSS/Cesta.css" type="text/css"/>
     </head>
     <body>
-        <form action="procesar.cgi" method="POST">
-
             <div class="menu">
                 <header id="menu">
                     <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
@@ -54,10 +52,28 @@
 
                         <tr>                     
                             <td> <%=nombre_producto%> </td>                     
-                            <td> <input type="number" id="num1" min="1" max="999999999" value="<%=cantidad%>"/> </td>                     
+                            <td> <input type="number" id="num<%=id%>" name="num<%=id%>" min="1" max="999999999" value="<%=cantidad%>" disabled="true"/> </td>                     
                             <td> <%=precio_final%> </td>                     
-                            <td> <input type="button" id="mod<%=id%>" value="Modificar"/> </td>
-                            <td> <input type="button" id="can<%=id%>" value="Cancelar"/> </td>
+                            <td>
+                                <form method="post" action="../cesta_modificar">
+                                    <input type="hidden" name="id_pedido" value="<%=id%>">
+                                    <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>">
+                                    <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)">
+                                    <input type="submit" value="Confirmar moificación">
+                                </form>
+                            </td>
+                            <td> 
+                                <form method="post" action="../cesta_cancelar">
+                                    <input type="hidden" name="id_pedido" value="<%=id%>">
+                                    <input type="submit" value="Cancelar"> 
+                                </form>
+                            </td>
+                            <td> 
+                                <form method="post" action="../cesta_enviar">
+                                    <input type="hidden" name="id_pedido" value="<%=id%>">
+                                    <input type="submit" value="Enviar"> 
+                                </form>
+                            </td>
                         </tr>
                         
                         <% 
@@ -67,11 +83,6 @@
                     </table>
                 </article>
 
-
-                <br>
-
-                <input type="button" value="Realizar pedido" id="boton"/>
-
             </div>
 
             <br> <br>
@@ -80,6 +91,5 @@
                 <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
             </footer>
 
-        </form>
     </body>
 </html>
