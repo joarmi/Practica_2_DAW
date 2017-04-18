@@ -138,4 +138,38 @@ public class accesoBD {
         return resultados;
         
     }
+    
+    public ResultSet comprobarRepetido(String usuario){
+        
+        abrirConexionBD();
+        ResultSet resultados = null;
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT COUNT(id_usuario) FROM usuarios WHERE usuario = '" + usuario + "';";
+            resultados = s.executeQuery(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        return resultados;
+        
+    }
+    
+    public void registroUsuario(String usuario, String passwd, String nombre, String apellidos, String telefono, String direccion, String email){
+        
+        abrirConexionBD();
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "INSERT INTO usuarios (usuario, contrasenya, nombre, apellidos, telefono, direccion, email) "
+                    + "VALUES ('" + usuario + "', '" +  passwd + "', '" + nombre +  "', '" + apellidos + "', '" + telefono
+                    + "', '" + direccion + "', '" + email + "');";
+            s.executeUpdate(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        
+    }
 }

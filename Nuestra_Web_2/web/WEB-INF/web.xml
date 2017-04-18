@@ -36,6 +36,10 @@
         <servlet-name>sesion_tienda</servlet-name>
         <servlet-class>base_de_datos.sesion_tienda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarse</servlet-name>
+        <servlet-class>base_de_datos.registrarse</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cesta_modificar</servlet-name>
         <url-pattern>/cesta_modificar</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>sesion_tienda</servlet-name>
         <url-pattern>/sesion_tienda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarse</servlet-name>
+        <url-pattern>/registrarse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

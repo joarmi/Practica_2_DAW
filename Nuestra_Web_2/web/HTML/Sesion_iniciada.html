@@ -24,40 +24,34 @@ and open the template in the editor.
             <br> <br>
 
             <div class="principal">
-                <input type="radio" name="opcion" id='radio' value="1"  title="modificar" onclick="habilitar()"/>
-                <label> Modificar </label>
-                <input type="radio" name="opcion" id='radio' value="2" title="no_modificar" onclick="deshabilitar()"/>
-                <label> No modificar </label>
-
-                <br> <br>
 
                 <article>
 
                     <table>
                         <tr>
-                            <td> Nombre: </td> <td> <input type="text" id="nombre" pattern="([ ]|[a-zA-z])*" name="nombre" size="20" maxlength="20" value="Javier"  disabled required /> </td>
+                            <td> Nombre: </td> <td> <input type="text" id="nombre" pattern="([ ]|[a-zA-z])*" name="nombre" size="20" maxlength="20" value="Javier" required /> </td>
                         </tr>
                         <tr>
-                            <td> Apellidos: </td> <td> <input type="text" id="apellidos" pattern="([ ]|[a-zA-z])*" name="apellidos" size="20" maxlength="20" value="Argente Micó" disabled required /> </td>
+                            <td> Apellidos: </td> <td> <input type="text" id="apellidos" pattern="([ ]|[a-zA-z])*" name="apellidos" size="20" maxlength="20" value="Argente Micó" required /> </td>
                         </tr>
                         <tr>
-                            <td> Usuario: </td> <td> <input type="text" id="user" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" size="20" maxlength="20" value="joarmi" disabled required /> </td>
+                            <td> Usuario: </td> <td> <input type="text" id="user" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" size="20" maxlength="20" value="joarmi" required /> </td>
                         </tr>
                         <tr>
-                            <td> Contraseña: </td> <td> <input type="password" id="pwd" name="password" size="20" maxlength="20" value="password" disabled required/> </td>
+                            <td> Contraseña: </td> <td> <input type="text" id="pwd" name="password" size="20" maxlength="20" value="password" required/> </td>
                         </tr>
                         <tr>
-                            <td> Teléfono: </td> <td> <input type="number" id="tel" name="telefono" min="1" max="999999999" value="123456789" disabled required/> </td>
+                            <td> Teléfono: </td> <td> <input type="number" id="tel" name="telefono" min="1" max="999999999" value="123456789" required/> </td>
                         </tr>
                         <tr>
-                            <td> Dirección </td> <td> <input type="text" id="dir" name="direccion" size="40" maxlength="50" value="Universidad de Valencia" disabled required/> </td>
+                            <td> Dirección </td> <td> <input type="text" id="dir" name="direccion" size="40" maxlength="50" value="Universidad de Valencia" required/> </td>
                         </tr>
                         <tr>
-                            <td> Email </td> <td> <input type="email" id="mail" name="email" size="40" maxlength="50" value="joarmi@alumni.uv.es" disabled required/> </td>
+                            <td> Email </td> <td> <input type="email" id="mail" name="email" size="40" maxlength="50" value="joarmi@alumni.uv.es" required/> </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td> <input type="reset" id="boton" value="Confirmar cambios" disabled /> </td>
+                            <td> <input type="reset" id="boton" value="Confirmar cambios" /> </td>
                         </tr>
                     </table>
 

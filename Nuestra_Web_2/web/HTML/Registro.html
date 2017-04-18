@@ -13,7 +13,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="../CSS/Registro.css" type="text/css"/>
     </head>
     <body>
-        <form action="procesar.cgi" method="POST">
+        <form method="post" action="../registrarse">
             <div class="menu">
                 <header id="menu">
                     <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
@@ -22,31 +22,35 @@ and open the template in the editor.
 
             <div class="principal">
                 <article>
+                    <label> Si se registra con éxito irá a la página de inicio, si introduce un usuario ya registrado al intentar registrarse volvera a esta página </label>
+                    
+                    <br> <br>
+                    
                     <table>
                         <tr>
-                            <td> Nombre: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="nombre" size="20" maxlength="20" required /> </td>
+                            <td> Nombre: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="nombre" id="nombre" size="20" maxlength="20" required /> </td>
                         </tr>
                         <tr>
-                            <td> Apellidos: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="apellidos" size="20" maxlength="20" required /> </td>
+                            <td> Apellidos: </td> <td> <input type="text" pattern="([ ]|[a-zA-z])*" name="apellidos" id="apellidos" size="20" maxlength="20" required /> </td>
                         </tr>
                         <tr>
-                            <td> Usuario: </td> <td> <input type="text" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" size="20" maxlength="20" required /> </td>
+                            <td> Usuario: </td> <td> <input type="text" pattern="([_]|[a-zA-z]|[0-9])*" name="usuario" id="usuario" size="20" maxlength="20" required /> </td>
                         </tr>
                         <tr>
-                            <td> Contraseña: </td> <td> <input type="password" name="password" size="20" maxlength="20" required/> </td>
+                            <td> Contraseña: </td> <td> <input type="password" name="password" id="password" size="20" maxlength="20" required/> </td>
                         </tr>
                         <tr>
-                            <td> Teléfono: </td> <td> <input type="number" name="telefono" min="1" max="999999999" required /> </td>
+                            <td> Teléfono: </td> <td> <input type="number" name="telefono" id="telefono" min="1" max="999999999" required /> </td>
                         </tr>
                         <tr>
-                            <td> Dirección </td> <td> <input type="text" name="direccion" size="40" maxlength="50" required/> </td>
+                            <td> Dirección </td> <td> <input type="text" name="direccion" id="direccion" size="40" maxlength="100" required/> </td>
                         </tr>
                         <tr>
-                            <td> Email </td> <td> <input type="email" name="email" size="40" maxlength="50" required/> </td>
+                            <td> Email </td> <td> <input type="email" name="email" id="email" size="40" maxlength="100" required/> </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td> <input type="submit" value="Entrar en la tienda" onclick="alert('Te has registrado')" id="boton" /> </td>
+                            <td> <input type="submit" value="Registrarse"/> </td>
                         </tr>
                     </table>
                 </article>
