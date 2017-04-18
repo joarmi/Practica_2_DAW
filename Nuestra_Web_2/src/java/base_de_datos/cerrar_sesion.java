@@ -32,6 +32,7 @@ public class cerrar_sesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Devolvemos el valor de la variable de entorno a null
             request.getSession().setAttribute("usuario", null);
             response.sendRedirect("HTML/Inicio.html");
             

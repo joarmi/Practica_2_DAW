@@ -32,6 +32,7 @@ public class tienda_producto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Se realiza un nuevo pedido con los datos necesarios
             int id = Integer.parseInt(request.getParameter("id_producto"));
             String nombre_producto = request.getParameter("nombre_producto");
             float precio = Float.parseFloat(request.getParameter("precio"));

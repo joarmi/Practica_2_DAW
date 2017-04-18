@@ -32,6 +32,7 @@ public class cesta_modificar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            // Utilizamos el id del pedido y la nueva cantidad para modifcar dicha contidad, desde la cesta
             int id = Integer.parseInt(request.getParameter("id_pedido"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
 

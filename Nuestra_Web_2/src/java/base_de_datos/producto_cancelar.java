@@ -32,6 +32,7 @@ public class producto_cancelar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Cancelamos un pedido utilizando su id, desde la ventana de administracion de los datos
             int id = Integer.parseInt(request.getParameter("id_pedido"));
 
             accesoBD con = new accesoBD();

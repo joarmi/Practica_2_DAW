@@ -32,6 +32,7 @@ public class cesta_enviar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            // Utilizamos el id del pedido para enviarlo, desde la cesta
             int id = Integer.parseInt(request.getParameter("id_pedido"));
 
             accesoBD con = new accesoBD();

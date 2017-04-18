@@ -32,6 +32,7 @@ public class producto_modificar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Modificamos un pedido utilizando su id, desde la ventana de administracion de los datos
             int id = Integer.parseInt(request.getParameter("id_pedido"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
 

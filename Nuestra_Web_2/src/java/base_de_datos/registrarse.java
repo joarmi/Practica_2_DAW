@@ -36,6 +36,8 @@ public class registrarse extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Registramos a un nuevo usuario si el nombre de usuario que ha elegido no esta
+            // siendo usado
             String usuario = request.getParameter("usuario");
             String passwd = request.getParameter("password");
             String nombre = request.getParameter("nombre");

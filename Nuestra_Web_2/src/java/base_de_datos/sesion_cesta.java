@@ -33,6 +33,8 @@ public class sesion_cesta extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Se comprueba si la variable de entorno tiene valor cuando se intenta acceder a las cesta,
+            // en caso de no tenerlo se redirecciona a un formulario para iniciar sesion
             HttpSession sesion = request.getSession();
             
             if(sesion.getAttribute("usuario") == null){

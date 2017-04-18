@@ -36,6 +36,8 @@ public class inicio_sesion_tienda extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Comprobamos si la variable de entorno tiene valor cuando se intenta realizar un pedido en la tienda,
+            // en caso de no tenerlo se redirecciona a un formulario para iniciar sesion
             String usuario = request.getParameter("usuario");
             String passwd = request.getParameter("password");
             int numero = 0;

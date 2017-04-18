@@ -36,6 +36,8 @@ public class modificar_datos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            // Modificamos los datos del usuario siempre que el nuevo nombre de usuario 
+            // no este siendo usado
             String id_usuario = request.getParameter("id_usuario");
             String usuario = request.getParameter("user");
             String contrasenya = request.getParameter("pwd");

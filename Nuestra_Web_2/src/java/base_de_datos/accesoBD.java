@@ -36,6 +36,7 @@ public class accesoBD {
         return conexionBD != null;
     }
     
+    // Funcion para obtener los productos que se mostraran en la tienda
     public ResultSet obtenerProductosBD() {
         abrirConexionBD();
         ResultSet resultados = null;
@@ -50,6 +51,8 @@ public class accesoBD {
         return resultados;
     }
     
+    // Funcion para crear un nuevo pedido utilizando los datos necesarios, donde nombre_usuario
+    // es la variable de entorno con el nombre de ususario
     public void realizarPedido(String nombre_usuario, String nombre_producto, float precio, int cantidad){
         abrirConexionBD();
         
@@ -66,6 +69,7 @@ public class accesoBD {
         
     }
 
+    // Funcion para obtener todos los pedidos de un usuario utilizando su nombre de usuario
     public ResultSet obtenerPedidosBD(String usuario) {
         abrirConexionBD();
         ResultSet resultados = null;
@@ -80,6 +84,8 @@ public class accesoBD {
         return resultados;
     }
     
+    // Funcion utilizada para modificar la cantidad de productos de un pedido, utilizando para ello
+    // el id del pedido y la nueva cantidad deseada
     public void modificarPedido(int id, int cantidad) {
         abrirConexionBD();
         
@@ -94,6 +100,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utilizada para realizar el envio de un pedido
     public void enviarPedido(int id) {
         abrirConexionBD();
         
@@ -108,6 +115,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utilizada para eliminar un pedido, lo que implica que es borrado de la base de datos
     public void cancelarPedido(int id) {
         abrirConexionBD();
         
@@ -122,6 +130,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utlizada para comprobar si las credenciales de inicio de sesion son correctas
     public ResultSet obtenerUsuario(String usuario, String passwd){
         
         abrirConexionBD();
@@ -138,7 +147,7 @@ public class accesoBD {
         return resultados;
         
     }
-    
+     // Funcion utlizada para comprobar si un nombre de usuario ya esta siendo usado
     public ResultSet comprobarRepetido(String usuario){
         
         abrirConexionBD();
@@ -156,6 +165,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utlizada para registrar a un nuevo usuario en la base de datos
     public void registroUsuario(String usuario, String passwd, String nombre, String apellidos, String telefono, String direccion, String email){
         
         abrirConexionBD();
@@ -173,6 +183,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utlizada para registrar las sugrencias en la base de datos
     public void registrarSugerencia(String sugerencia, String email){
         
         abrirConexionBD();
@@ -189,6 +200,7 @@ public class accesoBD {
         
     }
     
+    // Funcion utlizada para obtener todos los datos de un usuario utilizando su nombre de usuario
     public ResultSet obtenerDatos(String usuario){
         
         abrirConexionBD();
@@ -204,7 +216,7 @@ public class accesoBD {
         return resultados;
         
     }
-    
+     // Funcion utlizada para modificar los datos de un usuario en la base de datos
     public void modificarDatos(String id_usuario, String usuario, String contrasenya, String nombre, String apellidos, String telefono, String direccion, String email){
         
         abrirConexionBD();
@@ -222,6 +234,8 @@ public class accesoBD {
         
     }
     
+    // Funcion utlizada para modificar el nombre de usuario al que estan asociados los pedido cuando
+    // el usuario modifica su nombre de usuario
     public void modificarNombrePedidos(String id_usuario, String usuario){
         
         abrirConexionBD();

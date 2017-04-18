@@ -36,6 +36,8 @@ public class inicio_sesion_cesta extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Comprobamos si la variable de entorno tiene valor cuando se intenta acceder a la cesta,
+            // en caso de no tenerlo se redirecciona a un formulario para iniciar sesion
             String usuario = request.getParameter("usuario");
             String passwd = request.getParameter("password");
             int numero = 0;

@@ -32,6 +32,7 @@ public class sugerencia extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            // Se introduce la sugerencia en la base de datos
             String sugerencia = request.getParameter("textArea");
             String email = request.getParameter("email");
             
