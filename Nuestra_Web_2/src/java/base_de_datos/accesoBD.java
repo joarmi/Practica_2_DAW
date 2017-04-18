@@ -188,4 +188,62 @@ public class accesoBD {
         }
         
     }
+    
+    public ResultSet obtenerDatos(String usuario){
+        
+        abrirConexionBD();
+        ResultSet resultados = null;
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT id_usuario, usuario, contrasenya, nombre, apellidos, telefono, direccion, email FROM usuarios WHERE usuario = '" + usuario + "'";
+            resultados = s.executeQuery(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        return resultados;
+        
+    }
+    
+    public void modificarDatos(String id_usuario, String usuario, String contrasenya, String nombre, String apellidos, String telefono, String direccion, String email){
+        
+        abrirConexionBD();
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "UPDATE usuarios SET usuario = '" + usuario + "', contrasenya = '" + contrasenya + "', nombre = '" + nombre + "', apellidos = '" + apellidos + "', telefono = '" + telefono + "', direccion = '"
+                  + direccion + "', email = '" + email
+                  + "' WHERE id_usuario = '" + id_usuario + "';";
+            s.executeUpdate(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        
+    }
+    
+    public void modificarNombrePedidos(String id_usuario, String usuario){
+        
+        abrirConexionBD();
+        ResultSet res;
+        String user = null;
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT usuario FROM usuarios WHERE id_usuario = '" + id_usuario + "';";
+            res = s.executeQuery(con);
+            
+            while(res.next()){
+                user = res.getString(1);
+            }
+            
+            con = "UPDATE pedidos SET nombre_usuario = '" + usuario + "' WHERE nombre_usuario = '" + user + "';";
+            s.executeUpdate(con);
+            
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        
+    }
 }

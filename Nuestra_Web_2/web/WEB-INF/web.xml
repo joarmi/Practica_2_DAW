@@ -44,6 +44,26 @@
         <servlet-name>sugerencia</servlet-name>
         <servlet-class>base_de_datos.sugerencia</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>producto_modificar</servlet-name>
+        <servlet-class>base_de_datos.producto_modificar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>producto_cancelar</servlet-name>
+        <servlet-class>base_de_datos.producto_cancelar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modificar_datos</servlet-name>
+        <servlet-class>base_de_datos.modificar_datos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sesion_usuario</servlet-name>
+        <servlet-class>base_de_datos.sesion_usuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>inicio_sesion_usuario</servlet-name>
+        <servlet-class>base_de_datos.inicio_sesion_usuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cesta_modificar</servlet-name>
         <url-pattern>/cesta_modificar</url-pattern>
@@ -87,6 +107,26 @@
     <servlet-mapping>
         <servlet-name>sugerencia</servlet-name>
         <url-pattern>/sugerencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>producto_modificar</servlet-name>
+        <url-pattern>/producto_modificar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>producto_cancelar</servlet-name>
+        <url-pattern>/producto_cancelar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modificar_datos</servlet-name>
+        <url-pattern>/modificar_datos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sesion_usuario</servlet-name>
+        <url-pattern>/sesion_usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inicio_sesion_usuario</servlet-name>
+        <url-pattern>/inicio_sesion_usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
