@@ -7,6 +7,10 @@ package base_de_datos;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Javier Argente Micó
  */
-public class tienda_producto extends HttpServlet {
+public class inicio_sesion_cesta extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,21 +32,28 @@ public class tienda_producto extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            int id = Integer.parseInt(request.getParameter("id_producto"));
-            String nombre_producto = request.getParameter("nombre_producto");
-            float precio = Float.parseFloat(request.getParameter("precio"));
-            int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
+            String usuario = request.getParameter("usuario");
+            String passwd = request.getParameter("password");
+            int numero = 0;
             
-            String usuario = (String) request.getSession().getAttribute("usuario");
-
             accesoBD con = new accesoBD();
-            con.realizarPedido(usuario, nombre_producto, precio, cantidad);
+            ResultSet usu = con.obtenerUsuario(usuario, passwd);
             
-            response.sendRedirect("JSP/Tienda.jsp");
+            while(usu.next()){
+                numero = usu.getInt(1);
+            }
+            
+            if(numero == 1){
+                request.getSession().setAttribute("usuario", usuario);
+                response.sendRedirect("JSP/Cesta.jsp");
+            }
+            else{
+                response.sendRedirect("HTML/Inicio_sesion_cesta.html");
+            }
             
         }
     }
@@ -59,7 +70,11 @@ public class tienda_producto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(inicio_sesion_cesta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -73,7 +88,11 @@ public class tienda_producto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(inicio_sesion_cesta.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

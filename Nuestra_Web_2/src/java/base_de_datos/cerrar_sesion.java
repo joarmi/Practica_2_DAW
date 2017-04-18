@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Javier Argente Micó
  */
-public class tienda_producto extends HttpServlet {
+public class cerrar_sesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +32,8 @@ public class tienda_producto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            int id = Integer.parseInt(request.getParameter("id_producto"));
-            String nombre_producto = request.getParameter("nombre_producto");
-            float precio = Float.parseFloat(request.getParameter("precio"));
-            int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
-            
-            String usuario = (String) request.getSession().getAttribute("usuario");
-
-            accesoBD con = new accesoBD();
-            con.realizarPedido(usuario, nombre_producto, precio, cantidad);
-            
-            response.sendRedirect("JSP/Tienda.jsp");
+            request.getSession().setAttribute("usuario", null);
+            response.sendRedirect("HTML/Inicio.html");
             
         }
     }

@@ -66,13 +66,13 @@ public class accesoBD {
         
     }
 
-    public ResultSet obtenerPedidosBD() {
+    public ResultSet obtenerPedidosBD(String usuario) {
         abrirConexionBD();
         ResultSet resultados = null;
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad FROM pedidos WHERE envio=0";
+            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad FROM pedidos WHERE envio=0 AND nombre_usuario = '" + usuario + "'";
             resultados = s.executeQuery(con);
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
@@ -119,6 +119,23 @@ public class accesoBD {
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
         }
+        
+    }
+    
+    public ResultSet obtenerUsuario(String usuario, String passwd){
+        
+        abrirConexionBD();
+        ResultSet resultados = null;
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "SELECT COUNT(id_usuario) FROM usuarios WHERE usuario = '" + usuario + "' AND contrasenya = '" + passwd + "';";
+            resultados = s.executeQuery(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        return resultados;
         
     }
 }

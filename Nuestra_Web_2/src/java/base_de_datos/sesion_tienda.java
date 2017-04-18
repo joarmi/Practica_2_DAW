@@ -11,12 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Javier Argente Micó
  */
-public class tienda_producto extends HttpServlet {
+public class sesion_tienda extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +33,16 @@ public class tienda_producto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            int id = Integer.parseInt(request.getParameter("id_producto"));
-            String nombre_producto = request.getParameter("nombre_producto");
-            float precio = Float.parseFloat(request.getParameter("precio"));
-            int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
+            HttpSession sesion = request.getSession();
             
-            String usuario = (String) request.getSession().getAttribute("usuario");
-
-            accesoBD con = new accesoBD();
-            con.realizarPedido(usuario, nombre_producto, precio, cantidad);
+            if(sesion.getAttribute("usuario") == null){
+                response.sendRedirect("HTML/Inicio_sesion_tienda.html");
+            }
             
-            response.sendRedirect("JSP/Tienda.jsp");
+            else{
+                request.getRequestDispatcher("tienda_producto").forward(request, response);
+                //response.sendRedirect("tienda_producto");
+            }
             
         }
     }

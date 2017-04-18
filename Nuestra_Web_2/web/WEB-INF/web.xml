@@ -16,6 +16,26 @@
         <servlet-name>tienda_producto</servlet-name>
         <servlet-class>base_de_datos.tienda_producto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sesion_cesta</servlet-name>
+        <servlet-class>base_de_datos.sesion_cesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>inicio_sesion_cesta</servlet-name>
+        <servlet-class>base_de_datos.inicio_sesion_cesta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrar_sesion</servlet-name>
+        <servlet-class>base_de_datos.cerrar_sesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>inicio_sesion_tienda</servlet-name>
+        <servlet-class>base_de_datos.inicio_sesion_tienda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sesion_tienda</servlet-name>
+        <servlet-class>base_de_datos.sesion_tienda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cesta_modificar</servlet-name>
         <url-pattern>/cesta_modificar</url-pattern>
@@ -31,6 +51,26 @@
     <servlet-mapping>
         <servlet-name>tienda_producto</servlet-name>
         <url-pattern>/tienda_producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sesion_cesta</servlet-name>
+        <url-pattern>/sesion_cesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inicio_sesion_cesta</servlet-name>
+        <url-pattern>/inicio_sesion_cesta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrar_sesion</servlet-name>
+        <url-pattern>/cerrar_sesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inicio_sesion_tienda</servlet-name>
+        <url-pattern>/inicio_sesion_tienda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sesion_tienda</servlet-name>
+        <url-pattern>/sesion_tienda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

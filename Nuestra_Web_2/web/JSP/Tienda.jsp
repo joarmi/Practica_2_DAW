@@ -53,7 +53,7 @@
                             <td> <%=precio%> </td>
                             <td> <textarea rows="12" cols="25" disabled><%=descripcion%></textarea> </td>
                             <td>
-                                <form method="post" action="../tienda_producto">
+                                <form method="post" action="../sesion_tienda">
                                     <input type="hidden" name="id_producto" value="<%=id%>">
                                     <input type="hidden" name="nombre_producto" value="<%=nombre_producto%>">
                                     <input type="hidden" name="precio" value="<%=precio%>">

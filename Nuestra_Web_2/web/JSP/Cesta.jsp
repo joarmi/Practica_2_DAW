@@ -27,7 +27,7 @@
 
             <%   
                 accesoBD con = new accesoBD();
-                ResultSet pedidos = con.obtenerPedidosBD();
+                ResultSet pedidos = con.obtenerPedidosBD((String) session.getAttribute("usuario"));
             %> 
 
 
