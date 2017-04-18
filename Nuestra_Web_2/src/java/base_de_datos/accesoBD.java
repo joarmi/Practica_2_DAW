@@ -172,4 +172,20 @@ public class accesoBD {
         }
         
     }
+    
+    public void registrarSugerencia(String sugerencia, String email){
+        
+        abrirConexionBD();
+        
+        try {
+            String con;
+            Statement s = conexionBD.createStatement();
+            con = "INSERT INTO sugerencias (sugerencia, email) "
+                    + "VALUES ('" + sugerencia + "', '" +  email + "');";
+            s.executeUpdate(con);
+        } catch (Exception e) {
+            System.out.println("Error ejecutando la consulta a la BB.DD....");
+        }
+        
+    }
 }

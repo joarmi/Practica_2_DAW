@@ -13,7 +13,6 @@ and open the template in the editor.
         <link rel="stylesheet" href="../CSS/Contacto.css" type="text/css"/>
     </head>
     <body>
-        <form action="procesar.cgi" method="POST">
             <div class="menu">
                 <header id="menu">
                     <script> Cargar("../HTML/Auxiliar/Menu_desplegable.html", "menu");</script>
@@ -49,20 +48,22 @@ and open the template in the editor.
 
                 <br> <br>
 
-                <label> Tu correo: </label> <input type="email" required/>
-                
-                <br> <br>
-                
-                <table>
-                    <tr>
-                        <a> Envianos un correo </a>
-                    </tr>
-                    <tr>
-                        <td> <textarea id="textArea" rows="8" cols="35"> </textarea> </td>
-                    <tr>
-                        <td> <input type="reset" value="Enviar" /> </td>
-                    </tr>
-                </table>
+                <form method="post" action="../sugerencia">
+                    <label> Tu correo: </label> <input type="email" name="email" id="email" required/>
+
+                    <br> <br>
+
+                    <table>
+                        <tr>
+                            <a> Envianos un correo </a>
+                        </tr>
+                        <tr>
+                            <td> <textarea name="textArea" id="textArea" rows="8" cols="35"> </textarea> </td>
+                        <tr>
+                            <td> <input type="submit" value="Enviar" /> </td>
+                        </tr>
+                    </table>
+                </form>>
 
             </article>
             
@@ -71,6 +72,5 @@ and open the template in the editor.
             <footer id="pie"> 
                 <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
             </footer>
-        </form>
     </body>
 </html>

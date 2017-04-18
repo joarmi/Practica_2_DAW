@@ -40,6 +40,10 @@
         <servlet-name>registrarse</servlet-name>
         <servlet-class>base_de_datos.registrarse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sugerencia</servlet-name>
+        <servlet-class>base_de_datos.sugerencia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cesta_modificar</servlet-name>
         <url-pattern>/cesta_modificar</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>registrarse</servlet-name>
         <url-pattern>/registrarse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sugerencia</servlet-name>
+        <url-pattern>/sugerencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
