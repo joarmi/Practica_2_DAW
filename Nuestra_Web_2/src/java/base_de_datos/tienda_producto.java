@@ -38,10 +38,12 @@ public class tienda_producto extends HttpServlet {
             float precio = Float.parseFloat(request.getParameter("precio"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
             
+            String id_producto = String.valueOf(id);
+            
             String usuario = (String) request.getSession().getAttribute("usuario");
 
             accesoBD con = new accesoBD();
-            con.realizarPedido(usuario, nombre_producto, precio, cantidad);
+            con.realizarPedido(usuario, nombre_producto, precio, cantidad, id_producto);
             
             response.sendRedirect("JSP/Tienda.jsp");
             

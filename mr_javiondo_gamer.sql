@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2017 a las 17:21:02
+-- Tiempo de generación: 19-04-2017 a las 14:52:34
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -74,17 +74,18 @@ CREATE TABLE `productos` (
   `id_producto` int(20) NOT NULL,
   `descripcion` varchar(800) COLLATE utf8_spanish_ci NOT NULL,
   `precio` float NOT NULL,
-  `nombre_producto` varchar(100) COLLATE utf8_spanish_ci NOT NULL
+  `nombre_producto` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `stock` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_producto`) VALUES
-(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn'),
-(2, 'Robots y peleas.', 65, 'Nier:Automata'),
-(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections');
+INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_producto`, `stock`) VALUES
+(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn', 5),
+(2, 'Robots y peleas.', 65, 'Nier:Automata', 5),
+(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections', 5);
 
 -- --------------------------------------------------------
 
@@ -177,7 +178,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
@@ -192,7 +193,7 @@ ALTER TABLE `sugerencias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
