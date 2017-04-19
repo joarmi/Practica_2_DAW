@@ -42,8 +42,10 @@ public class tienda_producto extends HttpServlet {
             
             String usuario = (String) request.getSession().getAttribute("usuario");
 
-            accesoBD con = new accesoBD();
-            con.realizarPedido(usuario, nombre_producto, precio, cantidad, id_producto);
+            if(cantidad >= 0){
+                accesoBD con = new accesoBD();
+                con.realizarPedido(usuario, nombre_producto, precio, cantidad, id_producto);
+            }
             
             response.sendRedirect("JSP/Tienda.jsp");
             
