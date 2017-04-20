@@ -36,7 +36,7 @@
                     <table border="1" id="productos">
                         
                         <tr>
-                            <td> <b> Portada </b> </td> <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Stock </b> </td> <td> <b> Descripción </b> </td>
+                            <td> <b> Portada </b> </td> <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Stock </b> </td> <td> <b> Descripción </b> </td> <td> <b> Cantidad </b> </td>
                         </tr>
                         
                         <%
@@ -54,17 +54,21 @@
                             <td> <%=precio%> </td>
                             <td> <%=stock%> </td>
                             <td> <textarea rows="12" cols="25" disabled><%=descripcion%></textarea> </td>
-                            <td>
-                                <form method="post" action="../sesion_tienda">
-                                    <input type="hidden" name="id_producto" value="<%=id%>">
-                                    <input type="hidden" name="nombre_producto" value="<%=nombre_producto%>">
-                                    <input type="hidden" name="precio" value="<%=precio%>">
-                                    <input type="hidden" name="stock" value="<%=stock%>">
-                                    <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>">
-                                    <input type="button" value="Solicitar" onclick="hacer_pedido(<%=id%>)">
-                                    <input type="submit" value="Agregar a la cesta">
-                                </form>
-                            </td>
+                            
+                            <form method="post" action="../sesion_tienda">
+                                <td> <input type="number" name="cantidad<%=id%>" id="cantidad<%=id%>" min="0" max="100" value="0"/> </td>
+                                <td>
+                                    
+                                        <input type="hidden" name="id_producto" value="<%=id%>">
+                                        <input type="hidden" name="nombre_producto" value="<%=nombre_producto%>">
+                                        <input type="hidden" name="precio" value="<%=precio%>">
+                                        <input type="hidden" name="stock" value="<%=stock%>">
+                                        <%-- <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>" value="0"> --%>
+                                        <%-- <input type="button" value="Solicitar" onclick="hacer_pedido(<%=id%>)"> --%>
+                                        <input type="submit" value="Agregar a la cesta">
+                                    
+                                </td>
+                            </form>
                         </tr>
                         
                         <% 

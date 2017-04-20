@@ -36,7 +36,7 @@
                     <table border="1" id="pedidos">
 
                         <tr>
-                            <td> <b> Nombre </b> </td> <td> <b> Unidades </b> </td> <td> <b> Precio (€) </b> </td>
+                            <td> <b> Nombre </b> </td> <td> <b> Precio (€) </b> </td> <td> <b> Unidades) </b> </td>
                         </tr>
 
                         <%
@@ -51,17 +51,19 @@
                         %> 
 
                         <tr>                     
-                            <td> <%=nombre_producto%> </td>                     
-                            <td> <input type="number" id="num<%=id%>" name="num<%=id%>" min="1" max="999999999" value="<%=cantidad%>" disabled="true"/> </td>                     
-                            <td> <%=precio_final%> </td>                     
-                            <td>
-                                <form method="post" action="../cesta_modificar">
-                                    <input type="hidden" name="id_pedido" value="<%=id%>">
-                                    <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>">
-                                    <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)">
-                                    <input type="submit" value="Confirmar moificación">
-                                </form>
-                            </td>
+                            <td> <%=nombre_producto%> </td>
+                            <td> <%=precio_final%> </td>
+                            
+                            <form method="post" action="../cesta_modificar">
+                                <td> <input type="number" id="cantidad<%=id%>" name="cantidad<%=id%>" min="0" max="100" value="<%=cantidad%>" /> </td>                                        
+                                <td>
+                                        <input type="hidden" name="id_pedido" value="<%=id%>">
+                                        <%-- <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>"> --%>
+                                        <%-- <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)"> --%>
+                                        <input type="submit" value="Confirmar moificación">
+                                </td>
+                            </form>
+                            
                             <td> 
                                 <form method="post" action="../cesta_cancelar">
                                     <input type="hidden" name="id_pedido" value="<%=id%>">
