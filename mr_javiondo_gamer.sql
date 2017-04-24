@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2017 a las 14:52:34
+-- Tiempo de generación: 24-04-2017 a las 11:51:40
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -60,9 +60,9 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `nombre_usuario`, `nombre_producto`, `precio`, `cantidad`, `envio`) VALUES
-(1, 'joarmi', 'Horizon: Zero Dawn', 70, 2, 0),
-(2, 'joarmi', 'Nier: Automata', 65, 2, 0),
-(3, 'casbel', 'Devil May Cry HD Collections', 35, 2, 0);
+(1, 'joarmi', 'Horizon: Zero Dawn (PS4)', 70, 2, 0),
+(2, 'joarmi', 'Nier:Automata (PS4)', 65, 2, 0),
+(3, 'casbel', 'Devil May Cry HD Collections (PS3)', 35, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -83,9 +83,9 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_producto`, `stock`) VALUES
-(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn', 5),
-(2, 'Robots y peleas.', 65, 'Nier:Automata', 5),
-(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections', 5);
+(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn (PS4)', 5),
+(2, 'Robots y peleas.', 65, 'Nier:Automata (PS4)', 5),
+(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections (PS3)', 5);
 
 -- --------------------------------------------------------
 
