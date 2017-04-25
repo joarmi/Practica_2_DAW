@@ -337,23 +337,15 @@ public class accesoBD {
 
     // Funcion utlizada para modificar el nombre de usuario al que estan asociados los pedido cuando
     // el usuario modifica su nombre de usuario
-    public void modificarNombrePedidos(String id_usuario, String usuario) {
+    public void modificarNombrePedidos(String usuario_original, String usuario) {
 
         abrirConexionBD();
-        ResultSet res;
-        String user = null;
 
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            con = "SELECT usuario FROM usuarios WHERE id_usuario = '" + id_usuario + "';";
-            res = s.executeQuery(con);
 
-            while (res.next()) {
-                user = res.getString(1);
-            }
-
-            con = "UPDATE pedidos SET nombre_usuario = '" + usuario + "' WHERE nombre_usuario = '" + user + "';";
+            con = "UPDATE pedidos SET nombre_usuario = '" + usuario + "' WHERE nombre_usuario = '" + usuario_original + "';";
             s.executeUpdate(con);
 
         } catch (Exception e) {

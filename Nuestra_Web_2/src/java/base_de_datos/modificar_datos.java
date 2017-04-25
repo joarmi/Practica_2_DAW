@@ -39,6 +39,7 @@ public class modificar_datos extends HttpServlet {
             // Modificamos los datos del usuario siempre que el nuevo nombre de usuario 
             // no este siendo usado
             String id_usuario = request.getParameter("id_usuario");
+
             String usuario = request.getParameter("user");
             String contrasenya = request.getParameter("pwd");
             String nombre = request.getParameter("nombre");
@@ -46,25 +47,47 @@ public class modificar_datos extends HttpServlet {
             String telefono = request.getParameter("tel");
             String direccion = request.getParameter("dir");
             String email = request.getParameter("mail");
-            
-            int numero = 0;
-            
-            accesoBD con = new accesoBD();
-            ResultSet usu = con.comprobarRepetido(usuario);
-            
-            while(usu.next()){
-                numero = usu.getInt(1);
-            }
-            
-            if(numero == 1){
+
+            String usuario_ori = request.getParameter("user_ori");
+            String contrasenya_ori = request.getParameter("pwd_ori");
+            String nombre_ori = request.getParameter("nombre_ori");
+            String apellidos_ori = request.getParameter("apellidos_ori");
+            String telefono_ori = request.getParameter("tel_ori");
+            String direccion_ori = request.getParameter("dir_ori");
+            String email_ori = request.getParameter("mail_ori");
+
+            if (usuario.equals(usuario_ori) && contrasenya.equals(contrasenya_ori) && nombre.equals(nombre_ori) && apellidos.equals(apellidos_ori)
+                    && telefono.equals(telefono_ori) && direccion.equals(direccion_ori) && email.equals(email_ori)) {
                 response.sendRedirect("JSP/Sesion_iniciada.jsp");
             }
             
-            else{
-                request.getSession().setAttribute("usuario", usuario);
-                con.modificarNombrePedidos(id_usuario, usuario);
+            else if (usuario.equals(usuario_ori)) {
+                accesoBD con = new accesoBD();
                 con.modificarDatos(id_usuario, usuario, contrasenya, nombre, apellidos, telefono, direccion, email);
                 response.sendRedirect("JSP/Sesion_iniciada.jsp");
+            } 
+            
+            else {
+                int numero = 0;
+
+                accesoBD con = new accesoBD();
+                ResultSet usu = con.comprobarRepetido(usuario);
+
+                while (usu.next()) {
+                    numero = usu.getInt(1);
+                }
+
+                if (numero == 1) {
+                    con.modificarDatos(id_usuario, usuario_ori, contrasenya, nombre, apellidos, telefono, direccion, email);
+                    response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                } 
+                
+                else {
+                    con.modificarNombrePedidos((String) request.getSession().getAttribute("usuario"), usuario);
+                    con.modificarDatos(id_usuario, usuario, contrasenya, nombre, apellidos, telefono, direccion, email);
+                    request.getSession().setAttribute("usuario", usuario);
+                    response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                }
             }
 
         }

@@ -70,7 +70,17 @@
                             </tr>
                             <tr>
                                 <td> Email </td> <td> <input type="email" name="mail" id="mail" name="email" size="40" maxlength="50" value="<%=email%>" required/> </td>
-                            <input type="hidden" name="id_usuario" id="id_usuario" value="<%=id_usuario%>">
+                              
+                                <input type="hidden" name="id_usuario" id="id_usuario" value="<%=id_usuario%>">
+                                
+                                <input type="hidden" name="nombre_ori" id="nombre_ori" value="<%=nombre%>">
+                                <input type="hidden" name="apellidos_ori" id="apellidos_ori" value="<%=apellidos%>">
+                                <input type="hidden" name="user_ori" id="user_ori" value="<%=usuario%>">
+                                <input type="hidden" name="pwd_ori" id="pwd_ori" value="<%=contrasenya%>">
+                                <input type="hidden" name="tel_ori" id="tel_ori" value="<%=telefono%>">
+                                <input type="hidden" name="dir_ori" id="dir_ori" value="<%=direccion%>">
+                                <input type="hidden" name="mail_ori" id="mail_ori" value="<%=email%>">
+                            
                             </tr>
                             <tr>
                                 <td></td>
