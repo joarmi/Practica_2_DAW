@@ -94,7 +94,7 @@ public class accesoBD {
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad FROM pedidos WHERE envio=0 AND nombre_usuario = '" + usuario + "'";
+            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad, envio FROM pedidos WHERE nombre_usuario = '" + usuario + "'";
             resultados = s.executeQuery(con);
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");

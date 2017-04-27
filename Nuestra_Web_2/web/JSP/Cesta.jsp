@@ -46,6 +46,7 @@
                                 String nombre_producto = pedidos.getString("nombre_producto");
                                 float precio = pedidos.getFloat("precio");
                                 int cantidad = pedidos.getInt("cantidad");
+                                int envio = pedidos.getInt("envio");
 
                                 float precio_final = precio * cantidad;
                         %> 
@@ -54,28 +55,48 @@
                             <td> <%=nombre_producto%> </td>
                             <td> <%=precio_final%> </td>
                             
-                            <form method="post" action="../cesta_modificar">
-                                <td> <input type="number" id="cantidad<%=id%>" name="cantidad<%=id%>" min="0" max="100" value="<%=cantidad%>" /> </td>                                        
-                                <td>
-                                        <input type="hidden" name="id_pedido" value="<%=id%>">
-                                        <%-- <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>"> --%>
-                                        <%-- <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)"> --%>
-                                        <input type="submit" value="Confirmar moificación">
-                                </td>
-                            </form>
+                            <%
+                                if(envio == 0){
+                            %>
                             
-                            <td> 
-                                <form method="post" action="../cesta_cancelar">
-                                    <input type="hidden" name="id_pedido" value="<%=id%>">
-                                    <input type="submit" value="Cancelar"> 
-                                </form>
-                            </td>
-                            <td> 
-                                <form method="post" action="../cesta_enviar">
-                                    <input type="hidden" name="id_pedido" value="<%=id%>">
-                                    <input type="submit" value="Enviar"> 
-                                </form>
-                            </td>
+                                    <form method="post" action="../cesta_modificar">
+                                        <td> <input type="number" id="cantidad<%=id%>" name="cantidad<%=id%>" min="0" max="100" value="<%=cantidad%>" /> </td>                                        
+                                        <td>
+                                                <input type="hidden" name="id_pedido" value="<%=id%>">
+                                                <%-- <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>"> --%>
+                                                <%-- <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)"> --%>
+                                                <input type="submit" value="Confirmar moificación">
+                                        </td>
+                                    </form>
+
+                                    <td> 
+                                        <form method="post" action="../cesta_cancelar">
+                                            <input type="hidden" name="id_pedido" value="<%=id%>">
+                                            <input type="submit" value="Cancelar"> 
+                                        </form>
+                                    </td>
+                                    <td> 
+                                        <form method="post" action="../cesta_enviar">
+                                            <input type="hidden" name="id_pedido" value="<%=id%>">
+                                            <input type="submit" value="Enviar"> 
+                                        </form>
+                                    </td>
+                            
+                            <%
+                                }
+                            %>
+                            
+                            <%
+                                if(envio == 1){
+                            %>
+                            
+                                    <td> <input type="number" id="cantidad<%=id%>" name="cantidad<%=id%>" min="0" max="100" value="<%=cantidad%>" disabled="true"/> </td>                                        
+                                    <td colspan="3" align="center"> <b> ENVIADO </b> </td>
+                            
+                            <%
+                                }
+                            %>
+                            
                         </tr>
                         
                         <% 
