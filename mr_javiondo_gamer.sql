@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2017 a las 11:51:40
+-- Tiempo de generación: 27-04-2017 a las 13:48:28
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -62,7 +62,10 @@ CREATE TABLE `pedidos` (
 INSERT INTO `pedidos` (`id_pedido`, `nombre_usuario`, `nombre_producto`, `precio`, `cantidad`, `envio`) VALUES
 (1, 'joarmi', 'Horizon: Zero Dawn (PS4)', 70, 2, 0),
 (2, 'joarmi', 'Nier:Automata (PS4)', 65, 2, 0),
-(3, 'casbel', 'Devil May Cry HD Collections (PS3)', 35, 2, 0);
+(3, 'casbel', 'Devil May Cry HD Collections (PS3)', 35, 2, 0),
+(7, 'lluchpa', 'Horizon: Zero Dawn (PS4)', 70, 1, 0),
+(8, 'lluchpa', 'Nier:Automata (PS4)', 65, 2, 0),
+(9, 'joarmi', 'Persona 5 (PS4)', 69.95, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -83,9 +86,27 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_producto`, `stock`) VALUES
-(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn (PS4)', 5),
-(2, 'Robots y peleas.', 65, 'Nier:Automata (PS4)', 5),
-(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections (PS3)', 5);
+(1, 'Futurista y divertido, con un toque clásico.', 70, 'Horizon: Zero Dawn (PS4)', 4),
+(2, 'Robots y peleas.', 65, 'Nier:Automata (PS4)', 3),
+(3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections (PS3)', 5),
+(4, 'Futbol, asi de simple.', 20, 'FIFA 17 (PS4)', 4),
+(5, 'Espacial, trepidante y muy entretenido.', 35, 'Ratchet & Clank (PS4)', 10),
+(6, 'Uno de los mejores juegos de la historia de los videojuegos.', 19.95, 'Jack & Daxter (PS3)', 10),
+(7, 'Los mejores juegos de Assassins Creed en un solo pack.', 40, 'Assassins Creed The Ezio Collection (PS4)', 8),
+(8, 'El mejor del año, asi de fácil.', 35.5, 'Grand Theft Auto V (PS4)', 7),
+(9, 'Un juego psicodeligo y muy entretenido, perteneciente al género JRPG.', 69.95, 'Persona 5 (PS4)', 13),
+(10, 'Asalto, terrorismo, quien ganará?. Con este trepidante shooter lo descubriras, encargando a uno de ambos bandos con tus amigos.', 20, 'Rainbow Six Siege (PS4)', 9),
+(11, 'Juego intrigante del género de los puzzles, pero con una historia sorprendente y muy interesante.', 15.95, 'Portal 2 (PS3)', 20),
+(12, 'Hackear nunca había sido tan divertido, con esta nueva entrega de Watch Dogs.', 45.95, 'Watch Dogs 2 (PS4)', 15),
+(13, 'Fantasía, sobrenatural, la última entrega de The Witcher con una gran historia y jugabilidad.', 50, 'The Witcher 3 GOTY Edition (PS4)', 10),
+(14, 'Nunca ha sido tan divertido asesinar dioses, con la esperada remasterización de la tercera entrega de God of War.', 30, 'God of War Remastered (PS4)', 10),
+(15, 'Defenderse de una invasión extraterrestre destruyéndolos con una motosierra, eso y mucho más en esta nueva entrega de Gears of War', 69.95, 'Gears of War 4 Ultimate Edition (Xbox One)', 10),
+(16, 'Nos meteremos en la piel de uno de los soldados de élite de la primera guerra mundial para masacrar a nuestros enemigos.', 54.95, 'Battlefield 1 (PS4)', 10),
+(17, 'Siguiente entrega de la maravillosa saga de Halo', 59.95, 'Halo 5 Guardians (Xbox One)', 10),
+(18, 'Siguiente y última entre del gran caballero oscuro.', 59.95, 'Batman Arkham Knight (PS4)', 10),
+(19, 'Diviertete con tus amigos cantando los mejores éxitos musicales de los último 20 años.', 45.95, 'Singstar Ultimate Party (PS4)', 10),
+(20, 'Una de las mejores sagas de videojuegos de todos los tiempos.', 19.95, 'Uncharted The Nathan Drake Collection (PS4)', 10),
+(21, 'Ultima entre de la saga de Uncharted con Nathan Drake como protagonista.', 59.95, 'Uncharted 4 A Thiefs End (PS4)', 10);
 
 -- --------------------------------------------------------
 
@@ -104,7 +125,8 @@ CREATE TABLE `sugerencias` (
 --
 
 INSERT INTO `sugerencias` (`id_sugerencia`, `sugerencia`, `email`) VALUES
-(1, ' Esta tienda mola mucho.', 'javi@gmail.com');
+(1, ' Esta tienda mola mucho.', 'javi@gmail.com'),
+(2, ' Esta tienda es la mejor.', 'jose@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -129,7 +151,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contrasenya`, `nombre`, `apellidos`, `telefono`, `direccion`, `email`) VALUES
 (1, 'joarmi', '1234', 'Javier', 'Argente Mico', '123456789', 'Universidad de Navarres', 'joarmi@alumni.uv.es'),
-(2, 'casbel', '1234', 'Santiago', 'Castello Beltran', '987654321', 'Mi casa', 'casbel2@alumni.uv.es');
+(2, 'casbel', '1234', 'Santiago', 'Castello Beltran', '987654321', 'Mi casa', 'casbel2@alumni.uv.es'),
+(3, 'lluchpa', '1234', 'Jose', 'LLuch Palop', '123456789', 'calle se', 'jose@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -178,22 +201,22 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_producto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
-  MODIFY `id_sugerencia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_sugerencia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
