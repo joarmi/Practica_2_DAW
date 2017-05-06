@@ -65,7 +65,7 @@
                                                 <input type="hidden" name="id_pedido" value="<%=id%>">
                                                 <%-- <input type="hidden" id="cantidad<%=id%>" name="cantidad<%=id%>"> --%>
                                                 <%-- <input type="button" value="Modificar" onclick="cesta_modificar(<%=id%>)"> --%>
-                                                <input type="submit" value="Confirmar moidficación">
+                                                <input type="submit" value="Confirmar modificación">
                                         </td>
                                     </form>
 
