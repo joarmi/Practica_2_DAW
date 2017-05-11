@@ -34,11 +34,12 @@ public class cesta_cancelar extends HttpServlet {
             
             // Utilizamos el id del pedido para cancelarlo, desde la cesta
             int id = Integer.parseInt(request.getParameter("id_pedido"));
+            String codigo = "Se ha cancelado el pedido";
 
             accesoBD con = new accesoBD();
             con.cancelarPedido(id);
             
-            response.sendRedirect("JSP/Cesta.jsp");
+            response.sendRedirect("JSP/Cesta.jsp?error=" + codigo);
             
         }
     }

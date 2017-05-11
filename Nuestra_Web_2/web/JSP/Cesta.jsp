@@ -25,11 +25,19 @@
 
             <br> <br> <br> <br>
 
-            <%   
+            <%  
                 accesoBD con = new accesoBD();
                 ResultSet pedidos = con.obtenerPedidosBD((String) session.getAttribute("usuario"));
-            %> 
-
+                
+            %>
+            
+            <script>
+                <%
+                    if(request.getParameter("error") != null){
+                        %>
+                        alert("<%= request.getParameter("error")%>");  
+                    <%}%>
+            </script>
 
             <div class="principal">
                 <article>

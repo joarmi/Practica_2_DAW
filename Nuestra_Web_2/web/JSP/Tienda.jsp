@@ -30,6 +30,14 @@
                 accesoBD con = new accesoBD();
                 ResultSet productos = con.obtenerProductosBD();
             %> 
+            
+            <script>
+                <%
+                    if(request.getParameter("error") != null){
+                        %>
+                        alert("<%= request.getParameter("error")%>");  
+                    <%}%>
+            </script>
 
             <div class="principal">
                 <article>

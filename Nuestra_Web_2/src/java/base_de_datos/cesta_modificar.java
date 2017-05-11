@@ -35,13 +35,14 @@ public class cesta_modificar extends HttpServlet {
             // Utilizamos el id del pedido y la nueva cantidad para modifcar dicha contidad, desde la cesta
             int id = Integer.parseInt(request.getParameter("id_pedido"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
+            String codigo = null;
 
             if(cantidad >= 0){
                 accesoBD con = new accesoBD();
-                con.modificarPedido(id, cantidad);
+                codigo = con.modificarPedido(id, cantidad);
             }
             
-            response.sendRedirect("JSP/Cesta.jsp");
+            response.sendRedirect("JSP/Cesta.jsp?error=" + codigo);
 
         }
     }

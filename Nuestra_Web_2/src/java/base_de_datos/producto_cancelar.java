@@ -34,11 +34,12 @@ public class producto_cancelar extends HttpServlet {
             
             // Cancelamos un pedido utilizando su id, desde la ventana de administracion de los datos
             int id = Integer.parseInt(request.getParameter("id_pedido"));
+            String codigo = "Se ha cancelado el pedido";
 
             accesoBD con = new accesoBD();
             con.cancelarPedido(id);
             
-            response.sendRedirect("JSP/Sesion_iniciada.jsp");
+            response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
             
         }
     }

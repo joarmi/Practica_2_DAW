@@ -35,6 +35,8 @@ public class modificar_datos extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            String codigo = null;
 
             // Modificamos los datos del usuario siempre que el nuevo nombre de usuario 
             // no este siendo usado
@@ -58,13 +60,17 @@ public class modificar_datos extends HttpServlet {
 
             if (usuario.equals(usuario_ori) && contrasenya.equals(contrasenya_ori) && nombre.equals(nombre_ori) && apellidos.equals(apellidos_ori)
                     && telefono.equals(telefono_ori) && direccion.equals(direccion_ori) && email.equals(email_ori)) {
-                response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                
+                codigo = "No ha modificado sus datos";
+                response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
             }
             
             else if (usuario.equals(usuario_ori)) {
                 accesoBD con = new accesoBD();
                 con.modificarDatos(id_usuario, usuario, contrasenya, nombre, apellidos, telefono, direccion, email);
-                response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                
+                codigo = "Ha modificado sus datos correctamente";
+                response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
             } 
             
             else {
@@ -79,14 +85,18 @@ public class modificar_datos extends HttpServlet {
 
                 if (numero == 1) {
                     con.modificarDatos(id_usuario, usuario_ori, contrasenya, nombre, apellidos, telefono, direccion, email);
-                    response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                    
+                    codigo = "Se han modificado los datos correctamente, pero el usuario no, ya que ese usuario esta en uso";
+                    response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
                 } 
                 
                 else {
                     con.modificarNombrePedidos((String) request.getSession().getAttribute("usuario"), usuario);
                     con.modificarDatos(id_usuario, usuario, contrasenya, nombre, apellidos, telefono, direccion, email);
                     request.getSession().setAttribute("usuario", usuario);
-                    response.sendRedirect("JSP/Sesion_iniciada.jsp");
+                    
+                    codigo = "Ha modificado sus datos correctamente";
+                    response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
                 }
             }
 

@@ -35,13 +35,14 @@ public class producto_modificar extends HttpServlet {
             // Modificamos un pedido utilizando su id, desde la ventana de administracion de los datos
             int id = Integer.parseInt(request.getParameter("id_pedido"));
             int cantidad = Integer.parseInt(request.getParameter("cantidad" + id));
+            String codigo = null;
 
             if(cantidad >= 0){
                 accesoBD con = new accesoBD();
-                con.modificarPedido(id, cantidad);
+                codigo = con.modificarPedido(id, cantidad);
             }
             
-            response.sendRedirect("JSP/Sesion_iniciada.jsp");
+            response.sendRedirect("JSP/Sesion_iniciada.jsp?error=" + codigo);
             
         }
     }

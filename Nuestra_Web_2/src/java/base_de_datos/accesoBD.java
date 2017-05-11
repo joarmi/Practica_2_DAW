@@ -53,10 +53,12 @@ public class accesoBD {
 
     // Funcion para crear un nuevo pedido utilizando los datos necesarios, donde nombre_usuario
     // es la variable de entorno con el nombre de ususario, teniendo en cuenta las unidades que quedan
-    public void realizarPedido(String nombre_usuario, String nombre_producto, float precio, int cantidad, String id_producto) {
+    public String realizarPedido(String nombre_usuario, String nombre_producto, float precio, int cantidad, String id_producto) {
         abrirConexionBD();
         ResultSet resultados = null;
         int unidades = 0;
+        
+        String codigo = null;
 
         try {
             String con;
@@ -80,10 +82,21 @@ public class accesoBD {
                         + "VALUES ('" + nombre_usuario + "', '" + nombre_producto + "', '" + precio
                         + "', '" + cantidad + "', '0')";
                 s.executeUpdate(con);
+                
+                codigo = "Se ha realizado el pedido con exito";
             }
+            
+            else if(cantidad == 0)
+                codigo = "No se ha realizado el pedido porque la cantidad seleccionada es 0";
+            
+            else
+                codigo = "No se ha realizado el pedido porque la cantidad solicitada supero el stock";
+                
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
         }
+        
+        return codigo;
 
     }
 
@@ -104,9 +117,10 @@ public class accesoBD {
 
     // Funcion utilizada para modificar la cantidad de productos de un pedido, utilizando para ello
     // el id del pedido y la nueva cantidad deseada, teniendo en cuenta las unidades del producto restantes
-    public void modificarPedido(int id, int cantidad) {
+    public String modificarPedido(int id, int cantidad) {
         abrirConexionBD();
         ResultSet resultados = null;
+        String codigo = "No has cambiado la cantidad del pedido";
 
         try {
             String con;
@@ -140,6 +154,8 @@ public class accesoBD {
 
                     con = "UPDATE pedidos SET cantidad = '" + cantidad + "' WHERE id_pedido = '" + id + "';";
                     s.executeUpdate(con);
+                    
+                    codigo = "Se ha modificado la cantida de forma correcta";
 
                 } else if (cant - cantidad < 0) {
 
@@ -152,8 +168,13 @@ public class accesoBD {
 
                         con = "UPDATE pedidos SET cantidad = '" + cantidad + "' WHERE id_pedido = '" + id + "';";
                         s.executeUpdate(con);
+                        
+                        codigo = "Se ha modificado la cantida de forma correcta";
 
                     }
+                    
+                    else
+                        codigo = "No ha podido realizar el pedido porque se ha superado el stock maximo";
 
                 } else if (cantidad == 0) {
 
@@ -163,6 +184,8 @@ public class accesoBD {
 
                     con = "DELETE FROM pedidos WHERE id_pedido = '" + id + "';";
                     s.executeUpdate(con);
+                    
+                    codigo = "Al seleccionar 0 se ha cancelado el pedido";
 
                 }
                 
@@ -172,6 +195,8 @@ public class accesoBD {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
         }
 
+        return codigo;
+        
     }
 
     // Funcion utilizada para realizar el envio de un pedido
