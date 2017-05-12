@@ -31,14 +31,6 @@
                 ResultSet pedidos = con.obtenerPedidosBD((String) session.getAttribute("usuario"));
                 ResultSet datos = con.obtenerDatos((String) session.getAttribute("usuario"));
             %>
-            
-            <script>
-                <%
-                    if(request.getParameter("error") != null){
-                        %>
-                        alert("<%= request.getParameter("error")%>");  
-                    <%}%>
-            </script>
 
             <div class="principal">
 
@@ -177,5 +169,13 @@
             <footer id="pie"> 
                 <script> Cargar("../HTML/Auxiliar/Pie_de_pagina.html", "pie");</script>
             </footer>
+            
+            <script>
+                <%
+                    if(request.getParameter("error") != null){
+                        %>
+                        alert("<%= request.getParameter("error")%>");  
+                    <%}%>
+            </script>
     </body>
 </html>
