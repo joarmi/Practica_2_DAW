@@ -43,7 +43,7 @@ public class accesoBD {
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            con = "SELECT id_producto,nombre_producto,precio,descripcion,stock FROM productos";
+            con = "SELECT id_producto,nombre_producto,precio,descripcion,stock,alta FROM productos WHERE alta=0";
             resultados = s.executeQuery(con);
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
@@ -78,9 +78,9 @@ public class accesoBD {
                 con = "UPDATE productos SET stock = '" + nuevo_stock + "' WHERE id_producto = '" + id_producto + "';";
                 s.executeUpdate(con);
 
-                con = "INSERT INTO pedidos (nombre_usuario, nombre_producto, precio, cantidad, envio) "
+                con = "INSERT INTO pedidos (nombre_usuario, nombre_producto, precio, cantidad, envio, fecha) "
                         + "VALUES ('" + nombre_usuario + "', '" + nombre_producto + "', '" + precio
-                        + "', '" + cantidad + "', '0')";
+                        + "', '" + cantidad + "', '0', now())";
                 s.executeUpdate(con);
                 
                 codigo = "Se ha realizado el pedido con exito";
@@ -107,7 +107,7 @@ public class accesoBD {
         try {
             String con;
             Statement s = conexionBD.createStatement();
-            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad, envio FROM pedidos WHERE nombre_usuario = '" + usuario + "'";
+            con = "SELECT id_pedido,nombre_usuario,nombre_producto,precio,cantidad, envio, fecha FROM pedidos WHERE nombre_usuario = '" + usuario + "'";
             resultados = s.executeQuery(con);
         } catch (Exception e) {
             System.out.println("Error ejecutando la consulta a la BB.DD....");
