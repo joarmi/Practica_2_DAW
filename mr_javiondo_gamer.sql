@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2017 a las 14:51:31
+-- Tiempo de generación: 25-05-2017 a las 17:07:49
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -72,7 +72,9 @@ INSERT INTO `pedidos` (`id_pedido`, `nombre_usuario`, `nombre_producto`, `precio
 (16, 'hola', 'Persona 5 (PS4)', 69.95, 2, 1, '2017-05-01'),
 (17, 'hola', 'Halo 5 Guardians (Xbox One)', 59.95, 1, 0, '2017-05-01'),
 (19, 'joarmi', 'Rainbow Six Siege (PS4)', 20, 2, 1, '2017-05-13'),
-(20, 'joarmi', 'Watch Dogs 2 (PS4)', 45.95, 1, 1, '2017-05-13');
+(20, 'joarmi', 'Watch Dogs 2 (PS4)', 45.95, 1, 1, '2017-05-13'),
+(22, 'ja', 'Ratchet & Clank (PS4)', 35, 2, 1, '2017-05-25'),
+(24, 'ja', 'Horizon: Zero Dawn (PS4)', 70, 2, 0, '2017-05-25');
 
 -- --------------------------------------------------------
 
@@ -94,11 +96,11 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_producto`, `stock`, `alta`) VALUES
-(1, 'Futurista y divertido, con un toque clï¿½sico, de lo mejor, de lo mejor.        ', 65, 'Horizon: Zero Dawn (PS4)', 10, 0),
+(1, ' Futurista y divertido, con un toque clï¿½sico, de lo mejor, de lo mejor.         ', 70, 'Horizon: Zero Dawn (PS4)', 8, 0),
 (2, ' Robots y peleas. ', 65, 'Nier:Automata (PS4)', 5, 0),
 (3, 'El mejor juego del mundo.', 35, 'Devil May Cry HD Collections (PS3)', 5, 0),
 (4, 'Futbol, asi de simple.', 20, 'FIFA 17 (PS4)', 2, 0),
-(5, 'Espacial, trepidante y muy entretenido.', 35, 'Ratchet & Clank (PS4)', 10, 0),
+(5, 'Espacial, trepidante y muy entretenido.', 35, 'Ratchet & Clank (PS4)', 8, 0),
 (6, 'Uno de los mejores juegos de la historia de los videojuegos.', 19.95, 'Jack & Daxter (PS3)', 10, 0),
 (7, 'Los mejores juegos de Assassins Creed en un solo pack.', 40, 'Assassins Creed The Ezio Collection (PS4)', 7, 0),
 (8, 'El mejor del año, asi de fácil.', 35.5, 'Grand Theft Auto V (PS4)', 7, 0),
@@ -112,9 +114,9 @@ INSERT INTO `productos` (`id_producto`, `descripcion`, `precio`, `nombre_product
 (16, 'Nos meteremos en la piel de uno de los soldados de élite de la primera guerra mundial para masacrar a nuestros enemigos.', 54.95, 'Battlefield 1 (PS4)', 10, 0),
 (17, 'Siguiente entrega de la maravillosa saga de Halo', 59.95, 'Halo 5 Guardians (Xbox One)', 9, 0),
 (18, 'Siguiente y última entre del gran caballero oscuro.', 59.95, 'Batman Arkham Knight (PS4)', 10, 0),
-(19, 'Diviertete con tus amigos cantando los mejores éxitos musicales de los último 20 años.', 45.95, 'Singstar Ultimate Party (PS4)', 10, 0),
+(19, 'Juego de cantar.', 49.95, 'Singstar Ultimate Party (PS4)', 10, 1),
 (20, 'Una de las mejores sagas de videojuegos de todos los tiempos.', 19.95, 'Uncharted The Nathan Drake Collection (PS4)', 10, 0),
-(21, ' Lo mejor del mundo.', 59.95, 'Uncharted 4 A Thiefs End (PS4)', 8, 0);
+(21, ' Lo mejor del mundo.', 59.95, 'Uncharted 4 A Thiefs End (PS4)', 6, 0);
 
 -- --------------------------------------------------------
 
@@ -134,7 +136,8 @@ CREATE TABLE `sugerencias` (
 
 INSERT INTO `sugerencias` (`id_sugerencia`, `sugerencia`, `email`) VALUES
 (1, ' Esta tienda mola mucho.', 'javi@gmail.com'),
-(2, ' Esta tienda es la mejor.', 'jose@gmail.com');
+(2, ' Esta tienda es la mejor.', 'jose@gmail.com'),
+(3, ' Ha sido una experiencia muy agradable.', 'javiondogamer@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -158,10 +161,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `usuario`, `contrasenya`, `nombre`, `apellidos`, `telefono`, `direccion`, `email`) VALUES
-(1, 'joarmi', '1234', 'Javier', 'Argente', '123456788', 'Universidad de Valencia', 'joarmi_95@alumni.uv.es'),
+(1, 'joarmi', '1234', 'Javier', 'Argente', '123456788', 'Universidad de Valencia', 'joarmi@alumni.uv.es'),
 (2, 'casbel', '1234', 'Santiago', 'Castello Beltran', '987654321', 'Mi casa', 'casbel2@alumni.uv.es'),
 (3, 'lluchpa', '1234', 'Jose', 'LLuch Palop', '123456789', 'calle se', 'jose@gmail.com'),
-(4, 'hola', '1234', 'j', 'j', '123456789', 'hola', 'hola@hola');
+(4, 'hola', '1234', 'j', 'j', '123456789', 'hola', 'hola@hola'),
+(5, 'ja', '1234', 'j', 'j', '123456789', 'calle j', 'j@j.com');
 
 --
 -- Índices para tablas volcadas
@@ -210,22 +214,22 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pedido` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_producto` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `sugerencias`
 --
 ALTER TABLE `sugerencias`
-  MODIFY `id_sugerencia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sugerencia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
